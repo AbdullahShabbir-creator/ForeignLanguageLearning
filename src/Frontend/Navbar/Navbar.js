@@ -1,14 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light shadow">
       <div className="container">
         {/* Left Side - Logo */}
-        <a className="navbar-brand" href=" /">🌍 LanguageLearn</a>
+        <Link className="navbar-brand" to="/">🌍 Language Learning Platform</Link>
 
         {/* Navbar Toggle (For Mobile View) */}
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="navbarNav">
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span className="navbar-toggler-icon"></span>
         </button>
 
@@ -17,36 +18,34 @@ const Navbar = () => {
           <ul className="navbar-nav">
             {/* Course Content Dropdown */}
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href=" /" id="courseDropdown" role="button" data-bs-toggle="dropdown">
+              <a className="nav-link dropdown-toggle" href="/" id="courseDropdown" role="button" data-bs-toggle="dropdown">
                 Course Content
               </a>
               <ul className="dropdown-menu">
-                <li><a className="dropdown-item" href=" /">Link 1</a></li>
-                <li><a className="dropdown-item" href=" /">Link 2</a></li>
+                <li><Link className="dropdown-item" to="/">Link 1</Link></li>
+                <li><Link className="dropdown-item" to="/">Link 2</Link></li>
               </ul>
             </li>
 
             {/* Exam Test Practice Dropdown */}
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href=" /" id="examDropdown" role="button" data-bs-toggle="dropdown">
+              <a className="nav-link dropdown-toggle" href="/" id="examDropdown" role="button" data-bs-toggle="dropdown">
                 Exam Practice
               </a>
               <ul className="dropdown-menu">
-                <li><a className="dropdown-item" href=" /">Link 1</a></li>
-                <li><a className="dropdown-item" href=" /">Link 2</a></li>
+                <li><Link className="dropdown-item" to="/">Link 1</Link></li>
+                <li><Link className="dropdown-item" to="/">Link 2</Link></li>
               </ul>
             </li>
 
-            
-
             {/* Dynamic Learning Pathway Dropdown */}
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href=" /" id="learningDropdown" role="button" data-bs-toggle="dropdown">
+              <a className="nav-link dropdown-toggle" href="/" id="learningDropdown" role="button" data-bs-toggle="dropdown">
                 Learning Path
               </a>
               <ul className="dropdown-menu">
-                <li><a className="dropdown-item" href=" /">Link 1</a></li>
-                <li><a className="dropdown-item" href=" /">Link 2</a></li>
+                <li><Link className="dropdown-item" to="/">Link 1</Link></li>
+                <li><Link className="dropdown-item" to="/">Link 2</Link></li>
               </ul>
             </li>
           </ul>
@@ -54,8 +53,15 @@ const Navbar = () => {
 
         {/* Right Side - Search & User Icon */}
         <div className="d-flex">
-          <a className="nav-link me-3" href=" /"><i class="fa-solid fa-circle-user"></i></a>
-          <a className="nav-link" href=" /">  <i class="fa-solid fa-location-dot"></i></a>
+          {/* Redirect to Signup Page */}
+          <Link className="nav-link me-3" to="/signup">
+            <i className="fa-solid fa-circle-user"></i>
+          </Link>
+
+          {/* Location Icon */}
+          <Link className="nav-link" to="/">
+            <i className="fa-solid fa-location-dot"></i>
+          </Link>
         </div>
       </div>
     </nav>

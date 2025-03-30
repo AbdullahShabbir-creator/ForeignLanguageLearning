@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // For redirection after signup
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -7,14 +8,39 @@ const Signup = () => {
     password: "",
   });
 
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Signup Data:", formData);
-    // Here, you can send the formData to your backend API
+    console.log("Sending Signup Data:", formData);
+
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+      console.log("API Response:", data);
+
+      if (response.ok) {
+        alert("Signup Successful!");
+        navigate("/login"); // Redirect to login page after signup
+      } else {
+        setError(data.message || "Signup failed");
+      }
+    } catch (error) {
+      console.error("Signup Error:", error);
+      setError("Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -23,8 +49,8 @@ const Signup = () => {
         <div className="col-md-6">
           <div className="card shadow p-4">
             <h2 className="text-center">Sign Up</h2>
+            {error && <p className="text-danger text-center">{error}</p>}
             <form onSubmit={handleSubmit}>
-         
               <div className="mb-3">
                 <label className="form-label">Full Name</label>
                 <input
@@ -38,7 +64,6 @@ const Signup = () => {
                 />
               </div>
 
-              {/* Email Field */}
               <div className="mb-3">
                 <label className="form-label">Email Address</label>
                 <input
@@ -52,7 +77,6 @@ const Signup = () => {
                 />
               </div>
 
-            
               <div className="mb-3">
                 <label className="form-label">Password</label>
                 <input
@@ -71,7 +95,6 @@ const Signup = () => {
               </button>
             </form>
 
-         
             <p className="text-center mt-3">
               Already have an account? <a href="/login">Login here</a>
             </p>

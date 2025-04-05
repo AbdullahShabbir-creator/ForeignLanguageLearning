@@ -10,7 +10,7 @@ const HeroSection = () => {
         <div className="row align-items-center">
           {/* Left Side - Text Content */}
           <div className="col-md-6 text-start">
-            <h1 className="display-4 fw-bold">Master Any Language with Ease</h1>
+            <h1 className="display-4 fw-bold">Master IELTS German & Chinese Language with Ease</h1>
             <p className="lead">
               Learn new languages with interactive courses, practice exams, and personalized learning pathways.
               Start your journey today and unlock a world of opportunities!

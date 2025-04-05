@@ -35,8 +35,9 @@ const Navbar = () => {
                 Course Content
               </a>
               <ul className="dropdown-menu shadow">
-                <li><Link className="dropdown-item" to="/">Grammar Basics</Link></li>
-                <li><Link className="dropdown-item" to="/">Advanced Speaking</Link></li>
+                <li><Link className="dropdown-item" to="/">IELTS</Link></li>
+                <li><Link className="dropdown-item" to="/">German</Link></li>
+                <li><Link className="dropdown-item" to="/">Chinese</Link></li>
               </ul>
             </li>
 
@@ -52,8 +53,24 @@ const Navbar = () => {
                 Exam Practice
               </a>
               <ul className="dropdown-menu shadow">
-                <li><Link className="dropdown-item" to="/">Mock Tests</Link></li>
-                <li><Link className="dropdown-item" to="/">Listening Practice</Link></li>
+                {/* Nested dropdown under Mock Tests */}
+                <li className="nav-item dropdown">
+                  <a
+                    className="dropdown-item dropdown-toggle"
+                    href="#"
+                    id="mockTestsDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                  >
+                    Mock Tests
+                  </a>
+                  <ul className="dropdown-menu shadow">
+                    <li><Link className="dropdown-item" to="/mock-tests/level-1">Level 1</Link></li>
+                    <li><Link className="dropdown-item" to="/mock-tests/level-2">Level 2</Link></li>
+                    <li><Link className="dropdown-item" to="/mock-tests/level-3">Level 3</Link></li>
+                  </ul>
+                </li>
+                <li><Link className="dropdown-item" to="/">Display Result</Link></li>
               </ul>
             </li>
 
@@ -69,8 +86,8 @@ const Navbar = () => {
                 Learning Path
               </a>
               <ul className="dropdown-menu shadow">
-                <li><Link className="dropdown-item" to="/">Beginner Guide</Link></li>
-                <li><Link className="dropdown-item" to="/">Fluency Training</Link></li>
+                <li><Link className="dropdown-item" to="/">Recommendations</Link></li>
+              
               </ul>
             </li>
           </ul>
@@ -83,10 +100,6 @@ const Navbar = () => {
             <i className="fa-solid fa-user-circle"></i>
           </Link>
 
-          {/* Location Icon */}
-          <Link className="nav-link text-danger fs-5" to="/">
-            <i className="fa-solid fa-location-dot"></i>
-          </Link>
         </div>
       </div>
     </nav>

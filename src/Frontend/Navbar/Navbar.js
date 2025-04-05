@@ -35,9 +35,9 @@ const Navbar = () => {
                 Course Content
               </a>
               <ul className="dropdown-menu shadow">
-                <li><Link className="dropdown-item" to="/">IELTS</Link></li>
-                <li><Link className="dropdown-item" to="/">German</Link></li>
-                <li><Link className="dropdown-item" to="/">Chinese</Link></li>
+                <li><Link className="dropdown-item" to="/IeltsPage">IELTS</Link></li>
+                <li><Link className="dropdown-item" to="/GermanPage">German</Link></li>
+                <li><Link className="dropdown-item" to="/ChinesePage">Chinese</Link></li>
               </ul>
             </li>
 

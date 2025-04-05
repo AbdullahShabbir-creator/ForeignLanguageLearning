@@ -33,7 +33,7 @@ const Login = () => {
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
-      <div className="card shadow-lg p-4 border-0 rounded-3" style={{ maxWidth: "400px", width: "100%" }}>
+      <div className="card shadow-lg p-4 border-0 rounded-3" style={{ maxWidth: "400px", width: "100%"  }}>
         <h2 className="text-center mb-4 text-primary fw-bold">Login</h2>
         {error && <div className="alert alert-danger text-center">{error}</div>}
         <form onSubmit={handleSubmit}>

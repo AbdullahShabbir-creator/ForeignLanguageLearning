@@ -7,16 +7,23 @@ import Navbar from "./Frontend/Navbar/Navbar";
 import Signup from "./Frontend/Signup/Signup";
 import Login from "./Frontend/Login/Login";
 import HeroSection from "./Frontend/Herosection/Herosection";
+import IeltsPage from "./Frontend/IELTS/IELTS";
+import GermanPage from "./Frontend/German/German";
+import ChinesePage from "./Frontend/Chinese/Chinese";
 
 function App() {
   return (
     <Router>
 
  <Navbar/>
- <HeroSection/>
+ {/* <HeroSection/> */}
       <Routes>
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/IeltsPage" element={<IeltsPage />} />
+        <Route path="/GermanPage" element={<GermanPage />} />
+        <Route path="/ChinesePage" element={<ChinesePage />} />
+
 
 
       </Routes>

@@ -22,7 +22,7 @@ const Signup = () => {
 
       if (response.ok) {
         alert("Signup Successful!");
-        navigate("/login");
+        navigate("/login"); // Navigate to login page after successful signup
       } else {
         setError(data.message || "Signup failed");
       }
@@ -31,9 +31,17 @@ const Signup = () => {
     }
   };
 
+  const handleClose = () => {
+    navigate("/"); // Navigate to the homepage (or any other page you want)
+  };
+
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
-      <div className="card shadow-lg p-4 border-0 rounded-3" style={{ maxWidth: "400px", width: "100%" }}>
+    <div className="d-flex signup justify-content-center align-items-center vh-100 bg-light">
+      <div className="card shadow-lg p-4 border-0 rounded-3 signup" style={{ maxWidth: "400px", width: "100%"  }}>
+        <button
+          className="btn btn-close position-absolute top-0 end-0 m-3"
+          onClick={handleClose}
+        ></button>
         <h2 className="text-center mb-4 text-primary fw-bold">Create an Account</h2>
         {error && <div className="alert alert-danger text-center">{error}</div>}
         <form onSubmit={handleSubmit}>

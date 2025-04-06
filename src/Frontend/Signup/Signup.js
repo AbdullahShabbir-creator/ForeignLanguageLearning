@@ -37,7 +37,8 @@ const Signup = () => {
 
   return (
     <div className="d-flex signup justify-content-center align-items-center vh-100 bg-light">
-      <div className="card shadow-lg p-4 border-0 rounded-3 signup" style={{ maxWidth: "400px", width: "100%"  }}>
+      <div className="card shadow-lg p-4 border-0 rounded-3 signup"
+       style={{ maxWidth: "400px", width: "100%", marginBottom: "100px"  }}>
         <button
           className="btn btn-close position-absolute top-0 end-0 m-3"
           onClick={handleClose}

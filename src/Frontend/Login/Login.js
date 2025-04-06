@@ -31,9 +31,26 @@ const Login = () => {
     }
   };
 
+  // Handle Cancel (Navigate to Home or another route)
+  const handleCancel = () => {
+    navigate("/"); // Redirect to home or the desired page
+  };
+
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
-      <div className="card shadow-lg p-4 border-0 rounded-3" style={{ maxWidth: "400px", width: "100%"  }}>
+      <div
+        className="card shadow-lg p-4 border-0 rounded-3"
+        style={{ maxWidth: "400px", width: "100%", marginBottom: "200px" }}
+      >
+        {/* Cancel Icon */}
+        <button
+          className="btn btn-link position-absolute top-0 end-0 m-3"
+          style={{ fontSize: "20px", color: "#333" }}
+          onClick={handleCancel}
+        >
+          <i className="fas fa-times-circle"></i>
+        </button>
+
         <h2 className="text-center mb-4 text-primary fw-bold">Login</h2>
         {error && <div className="alert alert-danger text-center">{error}</div>}
         <form onSubmit={handleSubmit}>
@@ -61,12 +78,18 @@ const Login = () => {
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary w-100 py-2 fw-bold rounded-2 shadow-sm">
+          <button
+            type="submit"
+            className="btn btn-primary w-100 py-2 fw-bold rounded-2 shadow-sm"
+          >
             Login
           </button>
         </form>
         <p className="text-center mt-3">
-          Don't have an account? <a href="/signup" className="text-decoration-none text-primary fw-semibold">Sign Up</a>
+          Don't have an account?{" "}
+          <a href="/signup" className="text-decoration-none text-primary fw-semibold">
+            Sign Up
+          </a>
         </p>
       </div>
     </div>
